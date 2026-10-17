@@ -1,0 +1,8 @@
+{
+  "apiKey": "",
+  "model": "gpt-4o-mini",
+  "maxTokens": 2048,
+  "temperature": 0.7,
+  "enabled": false,
+  "systemPrompt": "你是 Obsidian 第二大脑的 AI 助手，帮助整理笔记、总结、思考、生成内容。请基于上下文给出简洁、有用的回答。"
+}

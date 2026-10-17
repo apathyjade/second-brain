@@ -1,0 +1,16 @@
+{
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": true,
+  "mobilePullAction": "check-for-updates",
+  "fileManagerOrder": "alphabetical",
+  "trashOption": "system",
+  "userIgnoreFilters": [
+    "Attachments/",
+    ".obsidian/",
+    ".git/",
+    ".serena/",
+    ".opencode-trace/"
+  ],
+  "promptDelete": false
+}

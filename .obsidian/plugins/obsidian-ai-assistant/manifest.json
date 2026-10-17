@@ -1,0 +1,11 @@
+{
+  "id": "obsidian-ai-assistant",
+  "name": "AI Assistant",
+  "version": "0.0.1-local",
+  "minAppVersion": "1.0.0",
+  "description": "Local placeholder for AI Assistant config (manual install or custom).",
+  "author": "local",
+  "authorUrl": "",
+  "fundingUrl": "",
+  "isDesktopOnly": false
+}
