@@ -1,0 +1,29 @@
+# Local tooling
+.serena/cache/
+.serena/project.local.yml
+.opencode-trace/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Obsidian workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+.obsidian/cache/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.local
+.venv/
