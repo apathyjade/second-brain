@@ -1,0 +1,16 @@
+# mainline Linux：K1 / OrangePi RV2 配置片段
+# 用法：scripts/kconfig/merge_config.sh 叠加到 riscv defconfig（见 scripts/22-build-linux.sh）
+# 说明：符号名以当前 mainline 为准；下面给出常见起点，未确认项保持注释，请用 `make menuconfig` 校正。
+
+# --- 控制台（基础可启动）---
+CONFIG_SERIAL_8250=y
+CONFIG_SERIAL_8250_CONSOLE=y
+
+# --- 平台 / SoC（按 mainline 实际符号取消注释）---
+# CONFIG_ARCH_SPACEMIT=y
+
+# --- 常见外设（按需取消注释）---
+# CONFIG_MMC_SDHCI_OF_SPACEMIT=y
+# CONFIG_SPACEMIT_ETH=y
+# CONFIG_PCIE_SPACEMIT=y
+# CONFIG_BRCMFMAC=m

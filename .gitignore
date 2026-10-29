@@ -27,3 +27,6 @@ __pycache__/
 .env
 .env.local
 .venv/
+
+# OpenCode session runtime state
+.omo/

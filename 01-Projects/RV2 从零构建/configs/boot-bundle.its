@@ -1,0 +1,70 @@
+/*
+ * FIT 源：OrangePi RV2 引导捆绑（OpenSBI + U-Boot + Linux + dtb）
+ * 用法：mkimage -f configs/boot-bundle.its out/boot-bundle.itb
+ * 注意：/incbin/ 路径相对本文件所在目录解析（故用 ../out/）。
+ * 具体 load/entry 地址与配置项以所用 U-Boot 树的 K1 文档为准，此处为可用起点。
+ */
+/dts-v1/;
+
+/ {
+	description = "OrangePi RV2 boot bundle";
+	#address-cells = <1>;
+
+	images {
+		fw_dynamic {
+			description = "mainline OpenSBI fw_dynamic";
+			data = /incbin/("../out/fw_dynamic.bin");
+			type = "firmware";
+			arch = "riscv";
+			os = "opensbi";
+			compression = "none";
+			load = <0x00000000>;
+			entry = <0x00000000>;
+		};
+		uboot {
+			description = "U-Boot (nodtb)";
+			data = /incbin/("../out/u-boot-nodtb.bin");
+			type = "standalone";
+			arch = "riscv";
+			os = "u-boot";
+			compression = "none";
+			load = <0x00200000>;
+			entry = <0x00200000>;
+		};
+		fdt_uboot {
+			description = "U-Boot device tree";
+			data = /incbin/("../out/u-boot.dtb");
+			type = "flat_dt";
+			arch = "riscv";
+			compression = "none";
+		};
+		kernel {
+			description = "Linux kernel Image";
+			data = /incbin/("../out/Image");
+			type = "kernel";
+			arch = "riscv";
+			os = "linux";
+			compression = "none";
+			load = <0x02000000>;
+			entry = <0x02000000>;
+		};
+		fdt {
+			description = "RV2 device tree";
+			data = /incbin/("../out/k1-orangepi-rv2.dtb");
+			type = "flat_dt";
+			arch = "riscv";
+			compression = "none";
+		};
+	};
+
+	configurations {
+		default = "conf";
+		conf {
+			description = "RV2 default";
+			firmware = "fw_dynamic";
+			loadables = "uboot", "fdt_uboot";
+			kernel = "kernel";
+			fdt = "fdt";
+		};
+	};
+};

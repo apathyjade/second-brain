@@ -1,0 +1,8 @@
+[build]
+target = "riscv64gc-unknown-linux-gnu"
+
+[target.riscv64gc-unknown-linux-gnu]
+# 交叉链接器（装 gcc-riscv64-linux-gnu，或用 SpacemiT 工具链）
+linker = "riscv64-linux-gnu-gcc"
+# 静态链接，单文件免运行时依赖；若目标 rootfs 用 glibc 可删掉此行
+rustflags = ["-C", "target-feature=+crt-static"]
